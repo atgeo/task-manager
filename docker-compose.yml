@@ -13,7 +13,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=mydatabase
+      - POSTGRES_DB=task_manager
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
     ports:
