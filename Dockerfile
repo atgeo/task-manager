@@ -8,10 +8,15 @@ WORKDIR /usr/src/app
 COPY requirements.txt ./
 
 # Install any dependencies specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
 
 RUN echo "DEBUG=on" >> .env && \
-    echo "SECRET_KEY=mysecretkey" >> .env
+    echo "SECRET_KEY='mysecretkey'" >> .env && \
+    echo "DB_NAME='task_manager'" >> .env && \
+    echo "DB_USER='postgres'" >> .env && \
+    echo "DB_PASSWORD='password'" >> .env && \
+    echo "DB_HOST='db'" >> .env && \
+    echo "DB_PORT=5432" >> .env
 
 # Copy the entire application code into the container
 COPY . .
