@@ -16,7 +16,9 @@ RUN echo "DEBUG=on" >> .env && \
     echo "DB_USER='postgres'" >> .env && \
     echo "DB_PASSWORD='password'" >> .env && \
     echo "DB_HOST='db'" >> .env && \
-    echo "DB_PORT=5432" >> .env
+    echo "DB_PORT=5432" >> .env && \
+    echo "JWT_ACCESS_TOKEN_LIFETIME=86400" >> .env && \
+    echo "JWT_REFRESH_TOKEN_LIFETIME=604800" >> .env
 
 # Copy the entire application code into the container
 COPY . .
